@@ -1,0 +1,792 @@
+[{
+  "_id": {
+    "$oid": "635ab9f68366871dfb720243"
+  },
+  "userName": "t",
+  "duration": 586,
+  "points": 0,
+  "category": "Magnesium",
+  "timeStamp": {
+    "$numberLong": "1666890230236"
+  }
+},{
+  "_id": {
+    "$oid": "635ab9f68366871dfb720246"
+  },
+  "userName": "t",
+  "duration": 1496,
+  "points": 0,
+  "category": "Chlorid",
+  "timeStamp": {
+    "$numberLong": "1666890230802"
+  }
+},{
+  "_id": {
+    "$oid": "635ab9f78366871dfb720249"
+  },
+  "userName": "t",
+  "duration": 2151,
+  "points": 0,
+  "category": "Protein",
+  "timeStamp": {
+    "$numberLong": "1666890231251"
+  }
+},{
+  "_id": {
+    "$oid": "635ab9f78366871dfb72024c"
+  },
+  "userName": "t",
+  "duration": 3191,
+  "points": 0,
+  "category": "Vitamin E",
+  "timeStamp": {
+    "$numberLong": "1666890231716"
+  }
+},{
+  "_id": {
+    "$oid": "635aba2c1abcb2017895504e"
+  },
+  "userName": "t",
+  "duration": 5562,
+  "points": 3,
+  "category": "Chlorid",
+  "timeStamp": {
+    "$numberLong": "1666890284781"
+  }
+},{
+  "_id": {
+    "$oid": "635aba567dae952c3bffe227"
+  },
+  "userName": "t",
+  "duration": 667,
+  "points": 1,
+  "category": "Natrium",
+  "timeStamp": {
+    "$numberLong": "1666890326166"
+  }
+},{
+  "_id": {
+    "$oid": "635abb4f270cd722b880b476"
+  },
+  "userName": "Toby",
+  "duration": 575,
+  "points": 5,
+  "category": "Folat",
+  "timeStamp": {
+    "$numberLong": "1666890575367"
+  }
+},{
+  "_id": {
+    "$oid": "635acc1847e9f86e2459859f"
+  },
+  "userName": "t",
+  "duration": 648,
+  "points": 1,
+  "category": "Vitamin B2",
+  "timeStamp": {
+    "$numberLong": "1666894872899"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "aA8UlP4BRuqQgSJYuwQu7A==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635acdeffeef7a6636a30c31"
+  },
+  "userName": "t",
+  "duration": 594,
+  "points": 2,
+  "category": "Betacarotin",
+  "timeStamp": {
+    "$numberLong": "1666895343270"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "yaCa1LtoR/ubjU/Cu37lEw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635acdf0feef7a6636a30c37"
+  },
+  "userName": "t",
+  "duration": 2280,
+  "points": 2,
+  "category": "Vitamin C",
+  "timeStamp": {
+    "$numberLong": "1666895344336"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "/FSrZC3yTTGPFxUqs3asAQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635acdf1feef7a6636a30c3d"
+  },
+  "userName": "t",
+  "duration": 4298,
+  "points": 2,
+  "category": "Stärke",
+  "timeStamp": {
+    "$numberLong": "1666895345779"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "WBHi1mJ4Rn2jOPvyV2qPNQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635acdf2feef7a6636a30c43"
+  },
+  "userName": "t",
+  "duration": 5581,
+  "points": 2,
+  "category": "Stärke",
+  "timeStamp": {
+    "$numberLong": "1666895346770"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "ho9HG8ZiRKuOoszaiNeutw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ace411a92356c2371102b"
+  },
+  "userName": "t",
+  "duration": 623,
+  "points": 2,
+  "category": "Niacin",
+  "timeStamp": {
+    "$numberLong": "1666895425123"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "q0eAZb8lTsi1ic0+j5KIMA==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635acf83685bac56431e8a43"
+  },
+  "userName": "t",
+  "duration": 568,
+  "points": 0,
+  "category": "Vitamin B1",
+  "timeStamp": {
+    "$numberLong": "1666895747259"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "WtQnV1ERTxWulSVsbxo3dA==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad0ec7538cf6291ecb9cd"
+  },
+  "userName": "t",
+  "duration": 646,
+  "points": 2,
+  "category": "Zink",
+  "timeStamp": {
+    "$numberLong": "1666896108444"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "GtIqknp2SxaoD1t2C83rTw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad1f607abbb20eb843b68"
+  },
+  "userName": "t",
+  "duration": 546,
+  "points": 3,
+  "category": "Wasser",
+  "timeStamp": {
+    "$numberLong": "1666896374896"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "9Pf4VhNKQY+t0vY1Uyn5xw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad24564586112e8380b9c"
+  },
+  "userName": "t",
+  "duration": 544,
+  "points": 0,
+  "category": "Protein",
+  "timeStamp": {
+    "$numberLong": "1666896453087"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "sdb7kBhKTxy9guXyTZQjtQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad2b70ce85521ee9faf6a"
+  },
+  "userName": "t",
+  "duration": 558,
+  "points": 1,
+  "category": "Vitamin E",
+  "timeStamp": {
+    "$numberLong": "1666896567092"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "Q7qPOnddQ4aMxP57mSyVSA==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad2f44449ad71204a5df0"
+  },
+  "userName": "t",
+  "duration": 598,
+  "points": 3,
+  "category": "Calcium",
+  "timeStamp": {
+    "$numberLong": "1666896628079"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "ZA0w21BUQOqJuk7EOOdE2w==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad31114324373a1e67055"
+  },
+  "userName": "t",
+  "duration": 623,
+  "points": 2,
+  "category": "Pantothensäure",
+  "timeStamp": {
+    "$numberLong": "1666896657376"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "xtYSPNNSTxKvNRoucW8tgQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad3164313cd00ac8db5e8"
+  },
+  "userName": "t",
+  "duration": 583,
+  "points": 3,
+  "category": "Betacarotin",
+  "timeStamp": {
+    "$numberLong": "1666896662626"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "uD2nf2XrRUeuvEOMs81mnQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad3461800b61b7954340c"
+  },
+  "userName": "t",
+  "duration": 517,
+  "points": 1,
+  "category": "Stärke",
+  "timeStamp": {
+    "$numberLong": "1666896710193"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "+7SbWlSXQGumbjBK/tlIeA==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad36580fb194db9c61cab"
+  },
+  "userName": "t",
+  "duration": 596,
+  "points": 2,
+  "category": "Vitamin C",
+  "timeStamp": {
+    "$numberLong": "1666896741376"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "H8+Il36/RPSFisA2Vec8tw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad380b7cc6666b3710fea"
+  },
+  "userName": "t",
+  "duration": 718,
+  "points": 2,
+  "category": "Pantothensäure",
+  "timeStamp": {
+    "$numberLong": "1666896768031"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "txTnWXLPS1yIxUTOVaDKyw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad3b9ab9b056229e64dda"
+  },
+  "userName": "t",
+  "duration": 623,
+  "points": 1,
+  "category": "Calcium",
+  "timeStamp": {
+    "$numberLong": "1666896825525"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "2ISmUzueQrGYB8J7lPx3lw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad496fec58547aa4d4f41"
+  },
+  "userName": "Tester1",
+  "duration": 572,
+  "points": 5,
+  "category": "Phosphor",
+  "timeStamp": {
+    "$numberLong": "1666897046963"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "eJ+Pa5YWSma5dakYxqDaSw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad4befcdef33a0c13d0dd"
+  },
+  "userName": "t",
+  "duration": 653,
+  "points": 1,
+  "category": "Niacin",
+  "timeStamp": {
+    "$numberLong": "1666897086145"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "ztW6XQwmTryVo1Hj7TSiTg==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad4f554d6055ad5229e6b"
+  },
+  "userName": "Tester2",
+  "duration": 691,
+  "points": 5,
+  "category": "Vitamin E",
+  "timeStamp": {
+    "$numberLong": "1666897141869"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "2NNat9MPSD2fqo/A1nOy7A==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad5c551916c459d992bc2"
+  },
+  "userName": "t",
+  "duration": 518,
+  "points": 4,
+  "category": "Stärke",
+  "timeStamp": {
+    "$numberLong": "1666897349325"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "N1QqJHDJQf2UneeC/SUQOQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad5c751916c459d992bca"
+  },
+  "userName": "t",
+  "duration": 2872,
+  "points": 4,
+  "category": "Nahrungsfasern",
+  "timeStamp": {
+    "$numberLong": "1666897351401"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "JnZv2u4VQ4meGE7h21Nm1Q==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad5c851916c459d992bd2"
+  },
+  "userName": "t",
+  "duration": 4835,
+  "points": 4,
+  "category": "Fettsäuren, mehrfach ungesättigt",
+  "timeStamp": {
+    "$numberLong": "1666897352900"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "m1v8gBpjSGmrcdRJ68/SMg==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad5de8bdc334387a8dd5a"
+  },
+  "userName": "t",
+  "duration": 600,
+  "points": 3,
+  "category": "Zink",
+  "timeStamp": {
+    "$numberLong": "1666897374061"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "phkz1XhwQl+GnPERSx5JNw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad7716a79ca3ceaa8c05a"
+  },
+  "userName": "Tester3",
+  "duration": 918,
+  "points": 5,
+  "category": "Jod",
+  "timeStamp": {
+    "$numberLong": "1666897777487"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "M74r2bJUQVuNwRTQ5NVwDg==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad86815c4f12ce41e54d5"
+  },
+  "userName": "t",
+  "duration": 478,
+  "points": 1,
+  "category": "Betacarotin",
+  "timeStamp": {
+    "$numberLong": "1666898024581"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "Z/6Xv/w+QXijIyRCv0ygag==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad8f837898c2596a24bfb"
+  },
+  "userName": "t",
+  "duration": 571,
+  "points": 3,
+  "category": "Jod",
+  "timeStamp": {
+    "$numberLong": "1666898168458"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "0DC3wWcQSVKcfDnB1aq/iQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad93aa834d17aa3c48bb2"
+  },
+  "userName": "t",
+  "duration": 687,
+  "points": 3,
+  "category": "Zucker",
+  "timeStamp": {
+    "$numberLong": "1666898234736"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "EJRKzwb5SAO9P0EHA3vpjw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ad93ca834d17aa3c48bbb"
+  },
+  "userName": "t",
+  "duration": 3024,
+  "points": 3,
+  "category": "Vitamin D",
+  "timeStamp": {
+    "$numberLong": "1666898236750"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "+aMpv5a9TC2TjzvJu3u9bw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ada81ca765518b89c3db5"
+  },
+  "userName": "t",
+  "duration": 642,
+  "points": 3,
+  "category": "Phosphor",
+  "timeStamp": {
+    "$numberLong": "1666898561219"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "TB4kMKoWScKS6iol+2yYxA==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ada82ca765518b89c3dbc"
+  },
+  "userName": "t",
+  "duration": 2807,
+  "points": 3,
+  "category": "Chlorid",
+  "timeStamp": {
+    "$numberLong": "1666898562641"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "sFKvbEEKTmWfTpDpng3hPQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635adb06572f0e5d14ffb0dc"
+  },
+  "userName": "t",
+  "duration": 602,
+  "points": 0,
+  "category": "Chlorid",
+  "timeStamp": {
+    "$numberLong": "1666898694297"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "tpsiMwrsSLep+1a7tyVGkw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635adb4d9fb93e4abb19dd4b"
+  },
+  "userName": "t",
+  "duration": 547,
+  "points": 1,
+  "category": "Fettsäuren, einfach ungesättigt",
+  "timeStamp": {
+    "$numberLong": "1666898765417"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "zMYdyBmvQCKsp0JL3irMtw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635adb4e9fb93e4abb19dd52"
+  },
+  "userName": "t",
+  "duration": 1943,
+  "points": 1,
+  "category": "Vitamin D",
+  "timeStamp": {
+    "$numberLong": "1666898766628"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "p67Yx9glS/2vjcyZwDac4Q==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635adb64599ecf39ac89fb12"
+  },
+  "userName": "t",
+  "duration": 629,
+  "points": 2,
+  "category": "Pantothensäure",
+  "timeStamp": {
+    "$numberLong": "1666898788441"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "g8GmMPsLRCOnoE4pI9MMIQ==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635adbe6194fde0efdab976a"
+  },
+  "userName": "t",
+  "duration": 632,
+  "points": 0,
+  "category": "Chlorid",
+  "timeStamp": {
+    "$numberLong": "1666898918326"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "8kasRqcTSa2XAH7CxuwRew==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ae1b8ca4f663a877ff533"
+  },
+  "userName": "Toby",
+  "duration": 54408,
+  "points": 2,
+  "category": "Vitamin C",
+  "timeStamp": {
+    "$numberLong": "1666900407978"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "w5Rf5hcPQXCL74lYpVwSOg==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "635ae261aa12b476e6b9c6e4"
+  },
+  "userName": "Tobias",
+  "duration": 45720,
+  "points": 4,
+  "category": "Calcium",
+  "timeStamp": {
+    "$numberLong": "1666900577152"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "a7mXEnQ3RfK29tatRI1cGw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "636388f6601ec33c6528b1d0"
+  },
+  "userName": "Tobias",
+  "duration": 45450,
+  "points": 2,
+  "category": "Zucker",
+  "timeStamp": {
+    "$numberLong": "1667467510151"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "VPJ0MyWVSkmA/iV2FazeDw==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363ae51c1567e0f389d7dce"
+  },
+  "userName": "Tobias",
+  "duration": 65823,
+  "points": 1,
+  "category": "Zucker",
+  "timeStamp": {
+    "$numberLong": "1667477073711"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "TxHkTbz5TP+aVw1Zn42VIA==",
+      "subType": "04"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6363b434a66aa55e64d0ad05"
+  },
+  "userName": "Justus",
+  "duration": 25647,
+  "points": 4,
+  "category": "Protein",
+  "timeStamp": {
+    "$numberLong": "1667478580409"
+  },
+  "gameRunUUID": {
+    "$binary": {
+      "base64": "qTGYyJ+XSyW0XcafSkJ1Ig==",
+      "subType": "04"
+    }
+  }
+}]

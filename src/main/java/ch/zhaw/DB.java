@@ -1,16 +1,15 @@
 package ch.zhaw;
 
+import ch.zhaw.exceptions.NotEnoughDatabaseEntriesException;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Sorts.ascending;
+import static com.mongodb.client.model.Sorts.descending;
 
 
 public class DB {
@@ -24,22 +23,25 @@ public class DB {
 
         return query;
     }
-    public static boolean checkIfSelectionHasEnoughValues(MongoCollection<Document> col, String selection) {
-        Bson filter = and(not(eq(selection, null)), not(eq(selection, 0)));
-        return col.find(filter).into(new ArrayList<Document>()).stream().count() > 3;
-    }
+
     public static Document getCorrectPropertyBasedResult(MongoCollection<Document> col, String selection) {
         Bson filter = and(not(eq(selection, null)), not(eq(selection, 0)));
         return shuffle(col.find(filter).into(new ArrayList<Document>())).get(1);
     }
 
-    public static List<Document> getFalsePropertyBasedResult(MongoCollection<Document> col, String selection, Document trueResult) {
+    public static List<Document> getFalsePropertyBasedResult(MongoCollection<Document> col, String selection, Document trueResult) throws NotEnoughDatabaseEntriesException {
         Bson filter = and(
                 not(eq(selection, null)),
                 not(eq(selection, 0)),
                 lt(selection, Double.parseDouble(trueResult.get(selection).toString()) / 2),
                 eq("Bezugseinheit", trueResult.get("Bezugseinheit")));
-        return shuffle(col.find(filter).into(new ArrayList<Document>())).subList(0,2);
+        ArrayList<Document> shuffledReturnList = shuffle(col.find(filter).into(new ArrayList<Document>()));
+        if (shuffledReturnList.size() <= 2) {
+            throw new NotEnoughDatabaseEntriesException(
+                    "Could not find enough entries for " + selection + " to launch this Game"
+            );
+        }
+        return shuffledReturnList.subList(0, 2);
     }
 
 
@@ -48,17 +50,39 @@ public class DB {
         return ArrayListInput;
     }
 
-    public static void insertQuizRun(String userName, long duration, Integer points, String selectedProperty) {
+    public static UUID insertQuizRun(String userName, long duration, int points, String selectedProperty) {
+        UUID gameUUID = UUID.randomUUID();
         Document document = new Document();
         document.append("userName", userName);
         document.append("duration", duration);
-        document.append("point", points);
+        document.append("points", points);
         document.append("category", selectedProperty);
+        document.append("timeStamp", new Timestamp(System.currentTimeMillis()).getTime());
+        document.append("gameRunUUID", gameUUID);
         ConnectionHandler.getDatabase("LN2").getCollection("scoreboard").insertOne(document);
-        System.out.println("Document inserted successfully");
+        return gameUUID;
     }
 
-    public static void getTopThree() {
-        ConnectionHandler.getDatabase("LN2").getCollection("scoreboard").find().sort(ascending("duration"));
+    /**
+     * Returns the whole Scoreboard sorted after points and duration
+     *
+     * @return
+     */
+    public static ArrayList<Document> getScoreBoard() {
+        return ConnectionHandler.getDatabase("LN2").getCollection("scoreboard").find().sort(descending("points", "duration")).into(new ArrayList<Document>());
+    }
+
+    /**
+     * Returns the whole Scoreboard of the selected property sorted after points and duration
+     *
+     * @param property
+     * @return
+     */
+    public static ArrayList<Document> getScoreBoard(String property) {
+        return ConnectionHandler.getDatabase("LN2").getCollection("scoreboard").find(eq("category", property)).sort(descending("points", "duration")).into(new ArrayList<Document>());
+    }
+
+    public static boolean checkIfUserAlreadyHasEntries(String userName) {
+        return ConnectionHandler.getDatabase("LN2").getCollection("scoreboard").find(eq("userName", userName)).into(new ArrayList<Document>()).size() > 0;
     }
 }

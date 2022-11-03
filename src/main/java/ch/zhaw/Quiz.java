@@ -1,5 +1,6 @@
 package ch.zhaw;
 
+import ch.zhaw.exceptions.NotEnoughDatabaseEntriesException;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
@@ -11,21 +12,20 @@ import java.util.*;
 public class Quiz {
 
     private String userName;
-    private  MongoCollection<Document> collection;
+    private MongoCollection<Document> foodCollection;
 
     private Scanner scanner;
 
-    private Integer points = 0;
-    private long duration;
+    private int points = 0;
 
     /**
      * Constructor for Quiz Class. Will also Initiate a Scanner to be used in the Class
+     *
      * @param user
-     * @param col
      */
-    public Quiz(String user, MongoCollection<Document> col) {
+    public Quiz(String user) {
         this.setUserName(user);
-        this.setCollection(col);
+        this.setFoodCollection(ConnectionHandler.getDatabase(Settings.databaseName).getCollection(Settings.foodCollection));
         this.setScanner(new Scanner(System.in));
 
 
@@ -35,29 +35,46 @@ public class Quiz {
      * Initializes Game Launch and Handles Game Property Selection
      */
     public void launch() {
-        List<Object> returnValue = this.printKeySet(DB.getFoodPropertiesAsResultList(this.getCollection()).keySet()); //TOOD Check if vaue has enough entries
-        Integer selection = this.getUserSelection(Settings.firstPropertySelectionSize);
-        if(DB.checkIfSelectionHasEnoughValues(this.getCollection(), returnValue.get(selection).toString())) {
-            this.startGameOnProperty(returnValue.get(selection).toString());
-        }
+        System.out.println(DB.checkIfUserAlreadyHasEntries(this.getUserName()) ? "Hallo " + this.getUserName() + "! Schön dich wiederzusehen" : "Hallo " + this.getUserName() + "!"); //Es wird davon ausgegangen das ein userName uniqe ist (was normalerweise nicht der Fall wäre).
+        System.out.println("Bitte wähle eine Kategorie aus:");
+        List<Object> returnValue = this.printKeySet(DB.getFoodPropertiesAsResultList(this.getFoodCollection()).keySet());
+        int selection = this.getUserSelection(Settings.firstPropertySelectionSize);
+        this.startGameOnProperty(returnValue.get(selection).toString());
 
-         }
+    }
 
 
     /**
-     * Starts and Runs Main Game Loop on Selected Property for 5 Runs
+     * Starts and Runs Main Game Loop on Selected Property for Settings.amountOfGameRuns Runs
+     *
      * @param selectedProperty
      */
     private void startGameOnProperty(String selectedProperty) {
+        System.out.println("Du hast " + selectedProperty + " ausgewählt.");
         long gameStart = System.nanoTime();
         for (int i = 0; i < Settings.amountOfGameRuns; i++) {
-            Document rightDocument = DB.getCorrectPropertyBasedResult(this.getCollection(), selectedProperty);
-            List<Document> documents = DB.getFalsePropertyBasedResult(this.getCollection(), selectedProperty, rightDocument);
-            documents.add(rightDocument); //TODO Shuffle documents
+            System.out.println("\nRunde " + (i + 1) + " beginnt...");
+            System.out.println("Welches dieser Essen hat am meisten " + selectedProperty + "?");
+            Document rightDocument = DB.getCorrectPropertyBasedResult(this.getFoodCollection(), selectedProperty);
+            List<Document> documents = null;
+            try {
+                documents = DB.getFalsePropertyBasedResult(this.getFoodCollection(), selectedProperty, rightDocument);
+            } catch (NotEnoughDatabaseEntriesException e) {
+                System.out.println(e);
+                System.out.println("Resetting...");
+                this.points = 0;
+                System.out.println("Restarting...");
+                System.out.print("\033[2J\033[1;1H");
+                System.out.println("Restart Complete");
+                this.launch();
+                break;
+            }
+            documents.add(rightDocument);
+            Collections.shuffle(documents);
             this.printAnswerOptions(documents);
 
 
-            if(rightDocument == documents.get(this.getUserSelection(3))) {
+            if (rightDocument == documents.get(this.getUserSelection(3))) {
                 System.out.println("Korrekt. Die Produkte enthalten pro 100g essbarer Anteil die folgende Menge " + selectedProperty + ":");
                 this.printResult(documents, selectedProperty);
                 this.points = this.points + 1;
@@ -66,35 +83,64 @@ public class Quiz {
                 this.printResult(documents, selectedProperty);
             }
 
+
         }
         long gameEnd = System.nanoTime();
-        this.duration =  (gameEnd - gameStart) / 1000000;
-        DB.insertQuizRun(this.getUserName(), this.duration, this.points, selectedProperty);
-        DB.getTopThree();
-        System.out.println(this.getUserName() + " du hast " + this.points + " erreicht und " + this.duration + "ms benötigt");
-        System.out.println("Damit bist du xyz in deiner Kategorie " + selectedProperty + " sowie xyz überalles");
+        long duration = (gameEnd - gameStart) / 1000000;
+        UUID gameID = DB.insertQuizRun(this.getUserName(), duration, this.points, selectedProperty);
+        System.out.println(this.getUserName() + " du hast einen Score von " + this.points + " erreicht und dafür " + duration + "ms benötigt");
+        System.out.println("Das ist die momentane TOP Drei Rangliste: \n");
+        this.printScoreboard(DB.getScoreBoard().subList(0, 3));
+        int overallPlaced = DB.getScoreBoard().stream().filter(x -> gameID.equals(x.get("gameRunUUID"))).map(x -> DB.getScoreBoard().indexOf(x)).toList().get(0) + 1;
+        int propertyPlaced = DB.getScoreBoard(selectedProperty).stream().filter(x -> gameID.equals(x.get("gameRunUUID"))).map(x -> DB.getScoreBoard(selectedProperty).indexOf(x)).toList().get(0) + 1;
+
+        System.out.println("Damit bist du " + propertyPlaced + ". in deiner Kategorie " + selectedProperty + " sowie " + overallPlaced + ". Überalles");
+
     }
 
     private void printResult(List<Document> documents, String selectedProperty) {
         for (int i = 0; i < documents.size(); i++) {
-            System.out.println(i+1 + ") " + documents.get(i).get(selectedProperty));
+            System.out.println(i + 1 + ") " + documents.get(i).get("Name") + " \t " + documents.get(i).get(selectedProperty));
         }
     }
 
     /**
-     *Gets user Selection
+     * Prints Options for Answers
+     *
+     * @param documents
+     */
+    private void printAnswerOptions(List<Document> documents) {
+        for (int i = 0; i < documents.size(); i++) {
+            System.out.println(i + 1 + ") " + documents.get(i).get("Name"));
+        }
+    }
+
+    private void printScoreboard(List<Document> documents) {
+        for (int i = 0; i < documents.size(); i++) {
+            System.out.println(i + 1 + ") \t" + documents.get(i).get("userName") + "\t" + documents.get(i).get("points") + "\t" + documents.get(i).get("duration") + "ms");
+        }
+    }
+
+    /**
+     * Gets user Selection
+     *
      * @param max
      * @return userSelection
      */
-    private Integer getUserSelection(int max) {
-        System.out.println("Please select result between 1 and " + max);
-        //return this.getScanner().nextInt(); TODO Uncomment
-        return 1;
+    private int getUserSelection(int max) {
+        System.out.println("Bitte wählen Sie einen Wert zwischen 1 und " + max);
+        int result = this.getScanner().nextInt();
+        if (result > max) {
+            System.out.println("Bitte eine korrekte Eingabe tätigen!");
+            this.getUserSelection(max);
+        }
+        return result - 1;
 
     }
 
     /**
      * Prints KeySet from first property Selection
+     *
      * @param keySet
      * @return
      */
@@ -105,20 +151,10 @@ public class Quiz {
             System.out.println(i + 1 + ") " + setAsList.get(i));
         }
 
-        System.out.println("Please select a value \n>");
         return setAsList;
 
     }
 
-    /**
-     * Prints Options for Answers
-     * @param documents
-     */
-    private void printAnswerOptions(List<Document> documents){
-        for (int i = 0; i < documents.size(); i++) {
-            System.out.println(i + ") " + documents.get(i).get("Name"));
-        }
-    }
 
     public String getUserName() {
         return userName;
@@ -128,12 +164,12 @@ public class Quiz {
         this.userName = userName;
     }
 
-    public MongoCollection<Document> getCollection() {
-        return collection;
+    public MongoCollection<Document> getFoodCollection() {
+        return foodCollection;
     }
 
-    public void setCollection(MongoCollection<Document> collection) {
-        this.collection = collection;
+    public void setFoodCollection(MongoCollection<Document> foodCollection) {
+        this.foodCollection = foodCollection;
     }
 
     public Scanner getScanner() {

@@ -9,6 +9,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.bson.UuidRepresentation;
 
 public class ConnectionHandler {
 
@@ -19,6 +20,7 @@ public class ConnectionHandler {
                 .serverApi(ServerApi.builder()
                         .version(ServerApiVersion.V1)
                         .build())
+                .uuidRepresentation(UuidRepresentation.STANDARD)
                 .build();
         MongoClient mongoClient = MongoClients.create(settings);
         return mongoClient.getDatabase(dbName);

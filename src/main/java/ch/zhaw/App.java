@@ -6,35 +6,28 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 import java.util.*;
+
 import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 
-public class App
-{
+public class App {
     static Logger root = (Logger) LoggerFactory
             .getLogger(Logger.ROOT_LOGGER_NAME);
 
     static {
-        root.setLevel(Level.INFO);
+        root.setLevel(Level.OFF);
     }
 
-    public static void main(String[] args )
-    {
+    public static void main(String[] args) {
         Scanner keyScan = new Scanner(System.in);
-
-        MongoCollection<Document> col = ConnectionHandler.getDatabase("LN2").getCollection("food");
-        System.out.println(col.countDocuments());
-
-        System.out.print("Please enter your name \n> ");
-        //String name = keyScan.next();
-        String name = "t"; //TODO XXX Delete
-        Quiz quiz = new Quiz(name, col);
+        System.out.print("Bitte Nutzernamen eingeben \n> "); //No Testing here since all values are allowed
+        String name = keyScan.next();
+        Quiz quiz = new Quiz(name);
         quiz.launch();
 
 
     }
-
 
 
 }
